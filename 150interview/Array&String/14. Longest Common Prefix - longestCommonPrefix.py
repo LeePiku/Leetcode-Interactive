@@ -4,12 +4,15 @@ class Solution(object):
         :type strs: List[str]
         :rtype: str
         """
-        # Create list of len strs
-        l = [len(i) for i in strs]
+        # Find smallest len strs
+        min_strs = 201
+        for i in strs:
+            if len(i) < min_strs:
+                min_strs = len(i)
         result = ''
 
         # Loop through smallest len
-        for i in range(min(l)):
+        for i in range(min_strs):
             check = strs[0][i]
 
             # Check with all strings index
@@ -19,5 +22,5 @@ class Solution(object):
                 else:
                     return result
             result += check
-            
+
         return result
